@@ -1,15 +1,15 @@
 fn main() -> i32 {
-    printc('H');
-    printc('e');
-    printc('l');
-    printc('l');
-    printc('o');
-    printc('W');
-    printc('o');
-    printc('r');
-    printc('l');
-    printc('d');
-    printc('\n');
+    print_char('H');
+    print_char('e');
+    print_char('l');
+    print_char('l');
+    print_char('o');
+    print_char('W');
+    print_char('o');
+    print_char('r');
+    print_char('l');
+    print_char('d');
+    print_char('\n');
     return 0;
 }
 
