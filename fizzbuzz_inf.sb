@@ -1,0 +1,63 @@
+fn main() -> i32 {
+    var cnt = 1;
+    while (true) {
+        if (cnt % 15 == 0) {
+            print_char('F');
+            print_char('i');
+            print_char('z');
+            print_char('z');
+            print_char('B');
+            print_char('u');
+            print_char('z');
+            print_char('z');
+            print_char('\n');
+        } else if (cnt % 3 == 0) {
+            print_char('F');
+            print_char('i');
+            print_char('z');
+            print_char('z');
+            print_char('\n');
+        } else if (cnt % 5 == 0) {
+            print_char('B');
+            print_char('u');
+            print_char('z');
+            print_char('z');
+            print_char('\n');
+        } else {
+            println_i32(cnt);
+        }
+        cnt += 1;
+    }
+    return 0;
+}
+
+fn println_i32(num: i32) {
+    // 数値
+    print_i32(num);
+
+    // 改行文字
+    var newline = 10;
+    asm! {
+        out R0[0] = newline
+    }
+}
+
+fn print_i32(num: i32) {
+    // 上位桁
+    if (num >= 10) {
+        print_i32(num / 10);
+    }
+
+    // 下位桁
+    var c = (num % 10) + 48;
+    asm! {
+        out R0[0] = c
+    }
+}
+
+fn print_char(c: char) {
+    var c = c as i32;
+    asm! {
+        out R0[0] = c
+    }
+}
