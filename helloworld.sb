@@ -13,7 +13,7 @@ fn main() -> i32 {
     return 0;
 }
 
-fn printc(c: char) {
+fn print_char(c: char) {
     var c = c as i32;
     asm! {
         out R0[0] = c
